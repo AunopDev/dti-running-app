@@ -2,8 +2,48 @@ import React from "react";
 import { Box, Typography, Avatar, TextField, Button } from "@mui/material";
 import run from "./../assets/images/run.png";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 function LoginRunner() {
+  const [runnerUsername, setRunnerUsername] = useState("");
+  const [runnerPassword, setRunnerPassword] = useState("");
+
+  const handleLoginClick = async (e) => {
+    e.preventDefault();
+    if (runnerUsername === "" || runnerPassword === "") {
+      alert("กรุณากรอกข้อมูลให้ครบถ้วน");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("runnerUsername", runnerUsername);
+    formData.append("runnerPassword", runnerPassword);
+
+    try {
+      const response = await fetch(
+        `http://localhost:3030/runner/${runnerUsername}/${runnerPassword}`,
+        {
+          method: "GET",
+        }
+      );
+
+      if (response.status == 200) {
+        // alert("เข้าใช้งานสำเร็จ");
+        // ก่อนที่จะเปิดไปเราจะเอาข้อมูลของผู้ใช้เก็บใน localStorage
+        const responeData = await response.json();
+        localStorage.setItem("runner", JSON.stringify(responeData["data"]));
+
+        window.location.href = "/run/runofrunner";
+      } else if (response.status == 404) {
+        alert("ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง");
+      } else {
+        alert("พบปัญหาในการทำงาน ลองใหม่อีกครั้ง หรือติดต่อผู้ดูแล");
+      }
+    } catch (error) {
+      alert(`พบปัญหาในการทำงาน ลองใหม่อีกครั้ง หรือติดต่อผู้ดูแล ${error}`);
+    }
+  };
+
   return (
     <>
       <Box sx={{ width: "100%" }}>
@@ -42,6 +82,8 @@ function LoginRunner() {
               fullWidth
               sx={{ mt: "1%", mb: "1%" }}
               label="Username"
+              value={runnerUsername}
+              onChange={(e) => setRunnerUsername(e.target.value)}
             />
             <Typography>ป้อนรหัสผ่าน</Typography>
             <TextField
@@ -50,6 +92,8 @@ function LoginRunner() {
               sx={{ mt: "1%", mb: "3%" }}
               type="password"
               label="Password"
+              value={runnerPassword}
+              onChange={(e) => setRunnerPassword(e.target.value)}
             />{" "}
             <Button
               variant="contained"
@@ -62,6 +106,7 @@ function LoginRunner() {
                 backgroundColor: "primary.main",
                 color: "white",
               }}
+              onClick={handleLoginClick}
             >
               Login
             </Button>
