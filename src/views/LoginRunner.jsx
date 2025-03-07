@@ -112,7 +112,7 @@ function LoginRunner() {
             </Button>
             <Typography sx={{ mt: "1%", textAlign: "center" }}>
               ยังไม่มีบัญชีผู้ใช้?
-              <Typography sx={{ display: "inline", ml: "2%" }}>
+              <Typography component="span" sx={{ display: "inline", ml: "2%" }}>
                 <Link
                   to="/runner/registerrunner"
                   style={{ textDecoration: "none", color: "#ff0000" }}
