@@ -3,7 +3,7 @@ import { Box, Typography, Avatar, TextField, Button } from "@mui/material";
 import run from "./../assets/images/run.png";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { API_URL } from "../config";
+import { API_URL, API_PREFIX } from "../config";
 
 function LoginRunner() {
   const [runnerUsername, setRunnerUsername] = useState("");

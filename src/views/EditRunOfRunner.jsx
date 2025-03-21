@@ -17,7 +17,7 @@ import register from "./../assets/images/register.png";
 import profile from "./../assets/images/profile.png";
 import Run from "./../assets/images/run.png";
 import { useState } from "react";
-import { API_URL } from "../config";
+import { API_URL, API_PREFIX } from "../config";
 
 function EditRunOfRunner() {
   const [runnerName, setRunnerName] = useState("");

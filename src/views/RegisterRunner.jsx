@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import { styled } from "@mui/system";
 import { useState } from "react";
-import { API_URL } from "../config";
+import { API_URL, API_PREFIX } from "../config";
 
 function RegisterRunner() {
   //สร้าง state เพื่อเก็บข้อมูลไฟล์

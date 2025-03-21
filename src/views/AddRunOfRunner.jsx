@@ -16,7 +16,7 @@ import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import { styled } from "@mui/system";
 import register from "./../assets/images/register.png";
 import profile from "./../assets/images/profile.png";
-import { API_URL } from "../config";
+import { API_URL, API_PREFIX } from "../config";
 
 function AddRunOfRunner() {
   const [runnerName, setRunnerName] = useState("");
