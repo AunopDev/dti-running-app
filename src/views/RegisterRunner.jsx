@@ -51,7 +51,7 @@ function RegisterRunner() {
       formData.append("runnerImage", runnerImage);
     }
     try {
-      const response = await fetch("http://localhost:3030/runner/", {
+      const response = await fetch("http://localhost:4444/runner/", {
         method: "POST",
         body: formData,
       });

@@ -43,7 +43,7 @@ function EditRunOfRunner() {
     const getOnlyData = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3030/run/only/${runId}`,
+          `http://localhost:4444/run/only/${runId}`,
           {
             method: "GET",
           }
@@ -107,7 +107,7 @@ function EditRunOfRunner() {
     }
     // ส่งข้อมูลไปผ่าน API ที่กำหนดไว้ที่ Back-End
     try {
-      const response = await fetch(`http://localhost:3030/run/${runId}`, {
+      const response = await fetch(`http://localhost:4444/run/${runId}`, {
         method: "PUT",
         body: formData,
       });
@@ -149,7 +149,7 @@ function EditRunOfRunner() {
                 runNewImage
                   ? URL.createObjectURL(runNewImage)
                   : runImage
-                  ? `http://localhost:3030/images/run/${runImage}`
+                  ? `http://localhost:4444/images/run/${runImage}`
                   : profile
               }
               sx={{ width: 50, height: 50, ml: "1%", mr: "2%" }}
@@ -244,7 +244,7 @@ function EditRunOfRunner() {
                 runNewImage
                   ? URL.createObjectURL(runNewImage)
                   : runImage
-                  ? `http://localhost:3030/images/run/${runImage}`
+                  ? `http://localhost:4444/images/run/${runImage}`
                   : profile
               }
             ></Avatar>

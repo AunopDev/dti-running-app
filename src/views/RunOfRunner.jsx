@@ -40,7 +40,7 @@ function RunOfRunner() {
     try {
       const getData = async () => {
         const response = await fetch(
-          `http://localhost:3030/run/${runner.runnerId}`,
+          `http://localhost:4444/run/${runner.runnerId}`,
           {
             method: "GET",
           }
@@ -63,7 +63,7 @@ function RunOfRunner() {
   const handleDeleteRun = async (runId) => {
     if (window.confirm("คุณต้องการลบข้อมูลการวิ่งใช่หรือไม่ ?")) {
       try {
-        const response = await fetch(`http://localhost:3030/run/${runId}`, {
+        const response = await fetch(`http://localhost:4444/run/${runId}`, {
           method: "DELETE",
         });
 
@@ -104,7 +104,7 @@ function RunOfRunner() {
               src={
                 runnerImage === ""
                   ? Profile
-                  : `http://localhost:3030/images/runner/${runnerImage}`
+                  : `http://localhost:4444/images/runner/${runnerImage}`
               }
               sx={{ width: 50, height: 50, ml: "1%", mr: "2%" }}
             ></Avatar>
@@ -171,7 +171,7 @@ function RunOfRunner() {
                         src={
                           row.runImage === ""
                             ? Run
-                            : `http://localhost:3030/images/run/${row.runImage}`
+                            : `http://localhost:4444/images/run/${row.runImage}`
                         }
                         sx={{ width: 50, height: 50, ml: "1%", mr: "2%" }}
                       ></Avatar>

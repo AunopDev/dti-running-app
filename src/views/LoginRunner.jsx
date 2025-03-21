@@ -21,7 +21,7 @@ function LoginRunner() {
 
     try {
       const response = await fetch(
-        `http://localhost:3030/runner/${runnerUsername}/${runnerPassword}`,
+        `http://localhost:4444/runner/${runnerUsername}/${runnerPassword}`,
         {
           method: "GET",
         }

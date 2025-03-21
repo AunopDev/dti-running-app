@@ -80,7 +80,7 @@ function AddRunOfRunner() {
     }
     // ส่งข้อมูลไปผ่าน API ที่กำหนดไว้ที่ Back-End
     try {
-      const response = await fetch("http://localhost:3030/run/", {
+      const response = await fetch("http://localhost:4444/run/", {
         method: "POST",
         body: formData,
       });
@@ -120,7 +120,7 @@ function AddRunOfRunner() {
               src={
                 runnerImage === ""
                   ? Profile
-                  : `http://localhost:3030/images/runner/${runnerImage}`
+                  : `http://localhost:4444/images/runner/${runnerImage}`
               }
               sx={{ width: 50, height: 50, ml: "1%", mr: "2%" }}
             ></Avatar>
