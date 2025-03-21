@@ -18,6 +18,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import { API_URL } from "../config";
 
 import Run from "./../assets/images/run.png";
 
@@ -40,7 +41,7 @@ function RunOfRunner() {
     try {
       const getData = async () => {
         const response = await fetch(
-          `http://localhost:4444/run/${runner.runnerId}`,
+          `${API_URL}/run/${runner.runnerId}`,
           {
             method: "GET",
           }
@@ -63,7 +64,7 @@ function RunOfRunner() {
   const handleDeleteRun = async (runId) => {
     if (window.confirm("คุณต้องการลบข้อมูลการวิ่งใช่หรือไม่ ?")) {
       try {
-        const response = await fetch(`http://localhost:4444/run/${runId}`, {
+        const response = await fetch(`${API_URL}/run/${runId}`, {
           method: "DELETE",
         });
 
@@ -104,7 +105,7 @@ function RunOfRunner() {
               src={
                 runnerImage === ""
                   ? Profile
-                  : `http://localhost:4444/images/runner/${runnerImage}`
+                  : `${API_URL}/images/runner/${runnerImage}`
               }
               sx={{ width: 50, height: 50, ml: "1%", mr: "2%" }}
             ></Avatar>
@@ -171,7 +172,7 @@ function RunOfRunner() {
                         src={
                           row.runImage === ""
                             ? Run
-                            : `http://localhost:4444/images/run/${row.runImage}`
+                            : `${API_URL}/images/run/${row.runImage}`
                         }
                         sx={{ width: 50, height: 50, ml: "1%", mr: "2%" }}
                       ></Avatar>

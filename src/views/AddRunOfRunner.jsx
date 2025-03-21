@@ -16,6 +16,8 @@ import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import { styled } from "@mui/system";
 import register from "./../assets/images/register.png";
 import profile from "./../assets/images/profile.png";
+import { useState } from "react";
+import { API_URL } from "../config";
 
 function AddRunOfRunner() {
   const [runnerName, setRunnerName] = useState("");
@@ -80,7 +82,7 @@ function AddRunOfRunner() {
     }
     // ส่งข้อมูลไปผ่าน API ที่กำหนดไว้ที่ Back-End
     try {
-      const response = await fetch("http://localhost:4444/run/", {
+      const response = await fetch(`${API_URL}/run/`, {
         method: "POST",
         body: formData,
       });
@@ -120,7 +122,7 @@ function AddRunOfRunner() {
               src={
                 runnerImage === ""
                   ? Profile
-                  : `http://localhost:4444/images/runner/${runnerImage}`
+                  : `${API_URL}/images/runner/${runnerImage}`
               }
               sx={{ width: 50, height: 50, ml: "1%", mr: "2%" }}
             ></Avatar>

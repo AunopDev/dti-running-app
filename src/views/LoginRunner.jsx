@@ -3,6 +3,7 @@ import { Box, Typography, Avatar, TextField, Button } from "@mui/material";
 import run from "./../assets/images/run.png";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { API_URL } from "../config";
 
 function LoginRunner() {
   const [runnerUsername, setRunnerUsername] = useState("");
@@ -21,7 +22,7 @@ function LoginRunner() {
 
     try {
       const response = await fetch(
-        `http://localhost:4444/runner/${runnerUsername}/${runnerPassword}`,
+        `${API_URL}/runner/${runnerUsername}/${runnerPassword}`,
         {
           method: "GET",
         }

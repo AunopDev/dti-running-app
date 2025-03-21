@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import { styled } from "@mui/system";
 import { useState } from "react";
+import { API_URL } from "../config";
 
 function RegisterRunner() {
   //สร้าง state เพื่อเก็บข้อมูลไฟล์
@@ -51,7 +52,7 @@ function RegisterRunner() {
       formData.append("runnerImage", runnerImage);
     }
     try {
-      const response = await fetch("http://localhost:4444/runner/", {
+      const response = await fetch(`${API_URL}/runner/`, {
         method: "POST",
         body: formData,
       });
