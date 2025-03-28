@@ -122,6 +122,9 @@ function LoginRunner() {
                 </Link>
               </Typography>
             </Typography>
+            <Typography sx={{ mt: "1%", textAlign: "center" }}>
+              Created by AunopDev
+            </Typography>
           </Box>
         </Box>
       </Box>
